@@ -1,9 +1,492 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Jamir Code</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Porichiti - Expert Digital Marketing Product Designer</title>
+    <style>
+        /* Basic Reset & Body Styles */
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #0b1a2a; /* Dark background */
+            color: #ffffff;
+        }
+
+        /* Header & Navigation */
+        header {
+            background-color: #0d1e31;
+            padding: 15px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #ffffff;
+            text-decoration: none;
+        }
+
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+
+        nav ul li {
+            margin-left: 30px;
+        }
+
+        nav ul li a {
+            color: #cccccc;
+            text-decoration: none;
+            font-size: 16px;
+            transition: color 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            color: #5eff5e; /* Green accent */
+        }
+
+        .btn-hire {
+            background-color: #5eff5e; /* Green accent */
+            color: #0d1e31;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn-hire:hover {
+            background-color: #4cdb4c;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 100px 0;
+            text-align: left;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+        }
+
+        .hero-content {
+            flex: 1;
+            max-width: 50%;
+            z-index: 1;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 18px;
+            color: #cccccc;
+            margin-bottom: 30px;
+        }
+
+        .hero-buttons a {
+            display: inline-block;
+            padding: 12px 25px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            margin-right: 15px;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .hero-buttons .btn-download {
+            background-color: #5eff5e; /* Green accent */
+            color: #0b1a2a;
+        }
+
+        .hero-buttons .btn-download:hover {
+            background-color: #4cdb4c;
+        }
+
+        .hero-buttons .btn-about {
+            background-color: transparent;
+            color: #5eff5e; /* Green accent */
+            border: 2px solid #5eff5e;
+        }
+
+        .hero-buttons .btn-about:hover {
+            background-color: #5eff5e;
+            color: #0b1a2a;
+        }
+
+        .hero-image {
+            flex: 1;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            position: relative;
+            padding-left: 50px; /* Space for the content */
+        }
+
+        .hero-image img {
+            max-width: 80%; /* Adjust as needed */
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            position: relative;
+            z-index: 1;
+        }
+
+        /* About Section */
+        .about {
+            padding: 80px 0;
+            background-color: #1a2c3f; /* Slightly lighter dark background */
+        }
+
+        .about-content {
+            display: flex;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .about-image {
+            flex: 1;
+            text-align: center;
+        }
+
+        .about-image img {
+            max-width: 90%;
+            height: auto;
+            border-radius: 10px;
+            border: 5px solid #5eff5e; /* Green border */
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .about-text {
+            flex: 2;
+        }
+
+        .about h2 {
+            font-size: 36px;
+            margin-bottom: 20px;
+            color: #5eff5e;
+        }
+
+        .about p {
+            font-size: 16px;
+            line-height: 1.6;
+            color: #cccccc;
+            margin-bottom: 20px;
+        }
+
+        /* Skills Section */
+        .skills {
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .skills-grid {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            margin-top: 50px;
+        }
+
+        .skill-item {
+            text-align: center;
+            margin: 20px;
+            width: 200px;
+        }
+
+        .skill-circle {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            border: 8px solid #334d66; /* Base circle color */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0 auto 15px auto;
+            font-size: 28px;
+            font-weight: bold;
+            position: relative;
+            overflow: hidden;
+            background-color: #0b1a2a; /* Inner circle background */
+        }
+
+        .skill-circle::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            box-sizing: border-box;
+            border: 8px solid transparent;
+            border-top-color: #5eff5e; /* Green progress color */
+            border-right-color: #5eff5e;
+            transform: rotate(-45deg); /* Start from top */
+            /* Adjust based on skill percentage (e.g., for 89%) */
+            /* transform: rotate(calc(-45deg + (360deg * 0.89))); */
+        }
+
+        /* Example for 89% */
+        .skill-item:nth-child(1) .skill-circle::before {
+            transform: rotate(calc(-45deg + (360deg * 0.89)));
+        }
+         /* Example for 79% */
+        .skill-item:nth-child(2) .skill-circle::before {
+            transform: rotate(calc(-45deg + (360deg * 0.79)));
+        }
+         /* Example for 67% */
+        .skill-item:nth-child(3) .skill-circle::before {
+            transform: rotate(calc(-45deg + (360deg * 0.67)));
+        }
+         /* Example for 88% */
+        .skill-item:nth-child(4) .skill-circle::before {
+            transform: rotate(calc(-45deg + (360deg * 0.88)));
+        }
+
+
+        .skill-item p {
+            font-size: 16px;
+            color: #cccccc;
+        }
+
+        /* Services Section */
+        .services {
+            padding: 80px 0;
+            background-color: #1a2c3f;
+            text-align: center;
+        }
+
+        .services h2 {
+            font-size: 36px;
+            margin-bottom: 20px;
+            color: #ffffff;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .service-item {
+            background-color: #0d1e31;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            text-align: center;
+        }
+
+        .service-item .icon {
+            font-size: 40px;
+            color: #5eff5e;
+            margin-bottom: 20px;
+        }
+
+        .service-item h3 {
+            font-size: 22px;
+            margin-bottom: 10px;
+            color: #ffffff;
+        }
+
+        .service-item p {
+            font-size: 15px;
+            color: #cccccc;
+            line-height: 1.6;
+        }
+
+        /* Stats Section */
+        .stats {
+            padding: 60px 0;
+            text-align: center;
+            background-color: #0b1a2a;
+        }
+
+        .stats-grid {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            margin-top: 30px;
+        }
+
+        .stat-item {
+            margin: 20px;
+        }
+
+        .stat-item .number {
+            font-size: 48px;
+            font-weight: bold;
+            color: #5eff5e;
+            margin-bottom: 10px;
+        }
+
+        .stat-item .label {
+            font-size: 18px;
+            color: #cccccc;
+        }
+
+        /* Footer (Simple Placeholder) */
+        footer {
+            padding: 40px 0;
+            text-align: center;
+            background-color: #0d1e31;
+            color: #cccccc;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            margin-top: 50px;
+        }
+    </style>
 </head>
 <body>
-  <h1>Hello! My GitHub Pages site works 🎉</h1>
+
+    <header>
+        <div class="container">
+            <a href="#" class="logo">Porichiti</a>
+            <nav>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Service</a></li>
+                    <li><a href="#">Portfolio</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </nav>
+            <a href="#" class="btn-hire">Hire Me</a>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <p>Hello, I'm Mahfuz, Expert Who Is</p>
+                <h1>An Expert Digital Marketing Product Designer</h1>
+                <p>I am a passionate and experienced product designer specializing in digital marketing solutions. I help businesses achieve their goals through user-centered design and effective strategies.</p>
+                <div class="hero-buttons">
+                    <a href="#" class="btn-download">Download CV</a>
+                    <a href="#" class="btn-about">About Me</a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <img src="https://via.placeholder.com/400x550?text=Your+Hero+Image" alt="Hero Image of Man Thinking">
+            </div>
+        </div>
+    </section>
+
+    <section class="about">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-image">
+                    <img src="https://via.placeholder.com/300x350?text=About+Image" alt="About Me Image">
+                </div>
+                <div class="about-text">
+                    <p>ABOUT ME</p>
+                    <h2>Why Hire Me For Your Next Project?</h2>
+                    <p>I bring a unique blend of creativity and strategic thinking to every project. My goal is to deliver designs that not only look great but also drive results and provide an exceptional user experience.</p>
+                    <p>I am committed to staying updated with the latest industry trends and technologies, ensuring that your project benefits from cutting-edge solutions. Let's create something amazing together!</p>
+                    <a href="#" class="btn-hire">Hire Me</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="skills">
+        <div class="container">
+            <h2 style="font-size: 36px; margin-bottom: 20px; color: #ffffff;">My Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-item">
+                    <div class="skill-circle">89%</div>
+                    <p>Adobe Photoshop</p>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-circle">79%</div>
+                    <p>UI & UX Design</p>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-circle">67%</div>
+                    <p>Adobe InDesign</p>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-circle">88%</div>
+                    <p>Web Development</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="services">
+        <div class="container">
+            <p style="color: #5eff5e; text-transform: uppercase; font-weight: bold; margin-bottom: 10px;">What We Do</p>
+            <h2>Service And Solutions</h2>
+            <div class="services-grid">
+                <div class="service-item">
+                    <div class="icon">⚙️</div> <h3>Pixel Perfection</h3>
+                    <p>Crafting visually stunning designs with meticulous attention to detail and precision.</p>
+                </div>
+                <div class="service-item">
+                    <div class="icon">📊</div> <h3>Digital Marketing</h3>
+                    <p>Implementing data-driven strategies to boost your online presence and reach your target audience.</p>
+                </div>
+                <div class="service-item">
+                    <div class="icon">📱</div> <h3>App Development</h3>
+                    <p>Building intuitive and high-performance mobile applications for various platforms.</p>
+                </div>
+                <div class="service-item">
+                    <div class="icon">🎨</div> <h3>Creative Design</h3>
+                    <p>Innovative and fresh design solutions that capture attention and communicate your brand effectively.</p>
+                </div>
+                <div class="service-item">
+                    <div class="icon">🔍</div> <h3>SEO For Ranking</h3>
+                    <p>Optimizing your content and website to achieve higher search engine rankings and visibility.</p>
+                </div>
+                <div class="service-item">
+                    <div class="icon">💻</div> <h3>Web Development</h3>
+                    <p>Developing responsive and robust websites using modern technologies and best practices.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="stats">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <div class="number">5670</div>
+                    <div class="label">Total Project</div>
+                </div>
+                <div class="stat-item">
+                    <div class="number">5400</div>
+                    <div class="label">Global Customers</div>
+                </div>
+                <div class="stat-item">
+                    <div class="number">760</div>
+                    <div class="label">Success Cases</div>
+                </div>
+                <div class="stat-item">
+                    <div class="number">778</div>
+                    <div class="label">Complete Projects</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>My Work Example</p>
+        </footer>
+
 </body>
 </html>
